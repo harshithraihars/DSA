@@ -23,14 +23,17 @@ public class TrappedWarter {
         int rightBound[] = new int[height.length];
         leftBound[0] = height[0];
         rightBound[height.length - 1] = height[height.length - 1];
+        // to find leftBoundary array
         for (int i = 1; i < height.length; i++) {
             leftBound[i] = Math.max(leftBound[i - 1], height[i]);
         }
+        // rightboundaryarray
         for (int i = height.length - 2; i >= 0; i--) {
             rightBound[i] = Math.max(rightBound[i + 1], height[i]);
         }
         int TrappedWarter = 0;
         for (int i = 0; i < height.length; i++) {
+            // water level=min(left,right)-height
             int currentHold = Math.min(leftBound[i], rightBound[i]) - height[i];
             TrappedWarter += currentHold;
         }

@@ -54,10 +54,26 @@ public class SubArray {
         }
         System.out.println("the maximum sum is "+max);
     }
+    public static void kadaans(int arr[]){
+        // in case all the numbers are negitive return smallest
+        int csum=0,msum=0;
+        // find prefix sum
+        for(int i=0;i<arr.length;i++){
+            csum+=arr[i];
+            if(csum>msum){
+                msum=csum;
+            }if(csum<0){
+                csum=0;
+            }
+        }
+        System.out.println(msum);
+        
+    }
     public static void main(String[] args) {
-        int arr[]={1,-2,6,-1,3};
+        int arr[]={1,2};
         // pairs(arr);
         // MinandMax(arr);
         PrefixSum(arr);
+        kadaans(arr);
     }
 }
