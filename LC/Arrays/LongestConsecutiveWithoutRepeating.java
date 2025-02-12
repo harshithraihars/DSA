@@ -14,6 +14,7 @@ public class LongestConsecutiveWithoutRepeating {
             } else {
                 hs.remove(s.charAt(left));
                 left++;
+                Math.ci
             }
         }
         return maxlength;
