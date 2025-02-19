@@ -35,7 +35,7 @@ public class ReduceSizeHalf {
         for(Integer value:hs.values()){
             numCount[value]++;
         }
-       Arrays.sort(numCount);
+    //    Arrays.sort(numCount);
         int length=arr.length;
         for(int j=numCount.length-1;j>=0;j--){
             if(numCount[j]>0){
