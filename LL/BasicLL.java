@@ -82,7 +82,7 @@ public class BasicLL {
         // create new node
         Node temp=Head;
         if(temp==null){
-            System.out.println("linked list is empty");return;
+            System.out.println("linked  is empty");return;
         }
         while (temp!=null) {
             System.out.print(temp.data+" ");
@@ -137,8 +137,40 @@ public class BasicLL {
         newNode.next=temp.next;
         temp.next=newNode;
     }
-
-
+    public void ReverseLL(){
+        Node curr=Head;
+        Node next;
+        Node prev=null;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        Head=prev;
+    }
+    public void removeNthFromEnd(Node head, int n) {
+        int size=0;
+        Node temp=head;
+        size--;
+        while(temp!=null){
+            temp=temp.next;
+            size++;
+        }
+        if(n==size){
+            head=head.next;
+            return;
+        }
+        int i=1;
+        int indextofind=size-n;
+        Node prev=head;
+        while(i<indextofind){
+            prev=prev.next;
+            i++;
+        }
+        prev.next=prev.next.next;
+        return;
+    }
     public static void main(String[] args) {
         BasicLL ll=new BasicLL();
         ll.addLast(1);
@@ -151,8 +183,11 @@ public class BasicLL {
         ll.printLL();
         ll.removeLast();
         ll.printLL();
-        System.out.println(ll.IterativeSearch(3));;
-        System.out.println(ll.RecursiveSearch(3));
+        // System.out.println(ll.IterativeSearch(3));;
+        // System.out.println(ll.RecursiveSearch(3));
+        // ll.ReverseLL();
+        ll.removeNthFromEnd(Head,2);
+        ll.printLL();
 
     }
 }
