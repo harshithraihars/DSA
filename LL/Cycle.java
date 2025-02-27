@@ -29,6 +29,7 @@ public class Cycle {
     public static void RemoveCycle(){
         Node slow=Head,fast=Head;
         boolean isExits=false;
+        // find cycle
         while (fast!=null && fast.next!=null) {
             slow=slow.next;
             fast=fast.next.next;
@@ -38,7 +39,7 @@ public class Cycle {
             }
         }
         if(!isExits)  return;
-        
+        // find intersection point
         slow=Head;
         Node prev=null;
         while (slow!=fast) {
