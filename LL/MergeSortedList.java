@@ -2,10 +2,11 @@ public class MergeSortedList {
     public class ListNode {
         public static int val;
         public static ListNode next;
-        public ListNode(int val,ListNode next){
+        public ListNode(int val){
             this.val=val;
-            this.next=next;
+            // this.next=null;
         }
+        public static ListNode head;
     }
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         if(list1==null && list2==null){
