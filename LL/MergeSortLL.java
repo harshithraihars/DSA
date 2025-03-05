@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class MergeSortLL {
     public static class Node {
         int data;
@@ -104,16 +106,50 @@ public class MergeSortLL {
         return merge(left,Right);
     }
 
+    public static void getMemory(){
+        Node temp=Head;
+        HashSet<String> hs=new HashSet<>();
+        while (temp!=null) {
+            hs.add(temp.toString());
+            temp=temp.next;
+        }
+        System.out.println(hs);
+    }
+
+
+    public void deleteNode(Node node) {
+        Node temp=node;
+        Node prev=temp;
+        while (temp.next!=null) {
+            prev=temp;
+            temp.data=temp.next.data;
+            temp=temp.next;
+        }
+        prev.next=null;
+        
+    }
     public static void main(String[] args) {
         MergeSortLL ll = new MergeSortLL();
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(3);
-        ll.addFirst(4);
-        ll.addFirst(5);
+        // ll.addFirst(1);
+        // ll.addFirst(2);
+        // ll.addFirst(3);
+        // ll.addFirst(4);
+        // ll.addFirst(5);
+        // ll.printLL(Head);
+        // System.out.println();
+        // Node head=MergeSort(Head);
+        // ll.printLL(head);
+
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        Node fourth=new Node(4);
+        Head.next.next.next=fourth;
+        fourth.next=new Node(5);
+        fourth.next.next=new Node(6);
         ll.printLL(Head);
+        ll.deleteNode(fourth);
         System.out.println();
-        Node head=MergeSort(Head);
-        ll.printLL(head);
+        ll.printLL(Head);
     }
 }

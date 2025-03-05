@@ -4,9 +4,10 @@ public class MergeSortedList {
         public static ListNode next;
         public ListNode(int val){
             this.val=val;
-            // this.next=null;
+            this.next=null;
         }
         public static ListNode head;
+        public static ListNode tail;
     }
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         if(list1==null && list2==null){
@@ -54,5 +55,58 @@ public class MergeSortedList {
             head2=head2.next;
         }
         return head;
+    }
+
+
+    // delete a node in linkedlist
+
+    public void deleteNode(ListNode node) {
+        ListNode temp=node;
+        ListNode prev=temp;
+        while (temp.next!=null) {
+            prev=temp;
+            temp.val=temp.next.val;
+            temp=temp.next;
+        }
+        prev.next=null;
+        
+    }
+
+
+    // intersection of two linkedlist
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int l1=0,l2=0;
+        ListNode temp1=headA;
+        ListNode temp2=headB;
+        while(temp1!=null){
+            l1++;
+            temp1=temp1.next;
+        }
+        while(temp2!=null){
+            l2++;
+            temp2=temp2.next;
+        }
+        int diff=Math.abs(l1-l2);
+        temp1=headA;
+        temp2=headB;
+        if(l1>l2){
+            while(diff>0){
+                temp1=temp1.next;
+                diff--;
+            }
+        }else{
+            while(diff>0){
+                temp2=temp2.next;
+                diff--;
+            }
+        }
+        while(temp1!=null && temp2!=null){
+            if(temp1==temp2){
+                return temp1;
+            }
+            temp1=temp1.next;
+            temp2=temp2.next;
+        }
+        return null;
     }
 }
