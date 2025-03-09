@@ -128,6 +128,23 @@ public class MergeSortLL {
         prev.next=null;
         
     }
+
+    public Node removeElements(Node head, int val) {
+        Node temp=head;
+        Node prev=head;
+        while (temp!=null) {
+            if(temp==head && temp.data==val){
+                head=temp.next;
+            }else if(temp.data==val){
+                prev.next=temp.next;
+            }
+            else{
+               prev=temp;
+            }
+            temp=temp.next;
+        }
+        return head;
+    }
     public static void main(String[] args) {
         MergeSortLL ll = new MergeSortLL();
         // ll.addFirst(1);
@@ -140,16 +157,27 @@ public class MergeSortLL {
         // Node head=MergeSort(Head);
         // ll.printLL(head);
 
+        // ll.addLast(1);
+        // ll.addLast(2);
+        // ll.addLast(3);
+        // Node fourth=new Node(4);
+        // Head.next.next.next=fourth;
+        // fourth.next=new Node(5);
+        // fourth.next.next=new Node(6);
+        // ll.printLL(Head);
+        // ll.deleteNode(fourth);
+        // System.out.println();
+        // ll.printLL(Head);
         ll.addLast(1);
         ll.addLast(2);
+        ll.addLast(6);
         ll.addLast(3);
-        Node fourth=new Node(4);
-        Head.next.next.next=fourth;
-        fourth.next=new Node(5);
-        fourth.next.next=new Node(6);
+        ll.addLast(4);
+        ll.addLast(5);
+        ll.addLast(6);
         ll.printLL(Head);
-        ll.deleteNode(fourth);
+        Node newhead=ll.removeElements(Head,7);
         System.out.println();
-        ll.printLL(Head);
+        ll.printLL(newhead);
     }
 }

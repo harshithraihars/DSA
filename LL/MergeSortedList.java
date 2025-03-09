@@ -72,7 +72,9 @@ public class MergeSortedList {
         
     }
 
+    // remove linkedlist elements 
 
+    
     // intersection of two linkedlist
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         int l1=0,l2=0;
