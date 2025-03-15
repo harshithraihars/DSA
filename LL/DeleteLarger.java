@@ -38,6 +38,11 @@ public class DeleteLarger {
         }
     }
 
+    public void sort(){
+        if(Head.next==null){
+            return;
+        }
+    }
     public void DeleteNextLarger() {
         Node temp = Head;
         Node prev = Head;
@@ -65,16 +70,49 @@ public class DeleteLarger {
         prev.next = null;
     }
 
+    public Node rotateRight(Node head, int k) {
+        if(head==null || head.next==null){
+            return head;
+        }
+        Node temp=head;
+        Node prev=head;
+        int size=0;
+        while(temp!=null){
+            size+=1;
+            temp=temp.next;
+        }
+        int rotations=0;
+        if(k>size){
+            rotations=k%size;
+        }else{
+            rotations=k;
+        }
+        temp=head;
+        System.out.println(rotations);
+        for(int n=1;n<=size-rotations;n++){
+            prev=temp;
+            temp=temp.next;
+        }
+        if(temp==head ||temp==null) return head;
+        prev.next=null;
+        Node start=temp;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=head;
+        Head=start;
+        return head;
+    }
     public static void main(String[] args) {
         DeleteLarger ll = new DeleteLarger();
-        ll.addLast(10);
-        ll.addLast(5);
-        ll.addLast(4);
-        ll.addLast(2);
         ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
         ll.printLL();
-        ll.DeleteNextLarger();
         System.out.println();
+        ll.rotateRight(Head, 8);
         ll.printLL();
     }
 }
