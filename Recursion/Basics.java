@@ -39,6 +39,13 @@ public class Basics {
         }
         return isSorted(arr, i+1);
     }
+
+    public static int fibo(int n){
+        if(n==0 ||n==1){
+            return n;
+        }
+        return fibo(n-1)+fibo(n-2);
+    }
     public static void main(String[] args) {
         int[] arr={1,2,3,5,4};
         PrintDecreasing(5);
@@ -46,5 +53,6 @@ public class Basics {
         System.out.println(factorial(5));
         System.out.println(sumof(5));
         System.out.println(isSorted(arr, 0));
+        System.out.println(fibo(7));
     }
 }
