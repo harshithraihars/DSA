@@ -26,6 +26,13 @@ public class BinaryString {
         Str.append(hs.get(n%10)+" ");
         return Str.toString();
     }
+
+    public static int LengthString(String str){
+        if(str.length()==0){
+            return 0;
+        }
+        return LengthString(str.substring(1))+1;
+    }
     public static void main(String[] args) {
         int arr[]={3,2,4,5,6,2,7,2,2};
         
@@ -43,7 +50,8 @@ public class BinaryString {
         hs.put(9, "Nine");
         hs.put(10, "Ten");
         StringBuilder str=new StringBuilder("");
-        System.out.println(ConvertNumberToString(hs,101010,str));;
+        System.out.println(ConvertNumberToString(hs,101010,str));
+        System.out.println(LengthString("abc"));;
     }
 
     
