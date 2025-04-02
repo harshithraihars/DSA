@@ -36,6 +36,23 @@ public class FirstandLastOccurence {
         }
         return fullpow;
     }
+
+    public static int first=-1;
+    public static int last=-1;
+
+    public static void FindFirstAndLst(String str,int i,char Target){
+        if(i==str.length()){
+            System.out.println(first+" "+last);
+            return;
+        }
+        if(str.charAt(i)==Target){
+            if(first==-1){
+                first=i;
+            }
+            last=i;
+        }
+        FindFirstAndLst(str, i+1, Target);
+    }
     public static void main(String[] args) {
         // int arr[]={1,2,3,4,5};
         // System.out.println(FirstOccurence(arr, 4, 0));
@@ -43,5 +60,6 @@ public class FirstandLastOccurence {
 
         System.out.println(power(2, 4));
         System.out.println(myPow(2, 5));
+        FindFirstAndLst("helloe:eee",0,'e');
     }
 }
