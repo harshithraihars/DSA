@@ -4,12 +4,12 @@ public class Patterns {
         if (row == 0) {
             return;
         }
-        if (row > col) {
-            System.out.print("*");
+        if (col<row) {
             printTriangle(row, col + 1);
+            System.out.print("*");
         } else {
-            System.out.println();
             printTriangle(row - 1, 0);
+            System.out.println();
         }
     }
 
