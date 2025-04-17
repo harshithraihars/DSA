@@ -84,7 +84,7 @@ public class Sorting {
             if(s<=e){
                 int temp=arr[s];
                 arr[s]=arr[e];
-                arr[e]=temp;
+                arr[e]=temp;k
                 s++;
                 e--;
             }
