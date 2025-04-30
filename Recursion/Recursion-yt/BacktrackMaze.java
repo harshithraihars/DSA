@@ -18,12 +18,40 @@ public class BacktrackMaze {
         maze[r][c]=true;
     }
 
+    public static void Printpath(int r,int c,String s,boolean[][] maze,int path[][],int step){
+        if(r==maze.length-1 && c==maze[0].length-1){
+            path[r][c]=step;
+            for(int i=0;i<maze.length;i++){
+                for(int j=0;j<maze[0].length;j++){
+                    System.out.print(path[i][j]+"\t");
+                }
+                System.out.println();
+            }
+            System.out.println();
+            return;
+        }
+
+        // mark it as visited
+        if(!maze[r][c]) return;
+        path[r][c]=step;
+        maze[r][c]=false;
+        if(r!=maze.length-1) Printpath(r+1, c, s+"D", maze,path,step+1);
+        if(c!=maze[0].length-1) Printpath(r, c+1, s+"R", maze,path,step+1);
+        if(r>0) Printpath(r-1, c, s+"U", maze,path,step+1);
+        if(c>0) Printpath(r, c-1, s+"L", maze,path,step+1);
+
+        // revert the changes you made
+        maze[r][c]=true;
+        path[r][c]=0;
+    }
+
     public static void main(String[] args) {
         boolean maze[][]={
             {true,true,true},
             {true,true,true},
             {true,true,true}
         };
-        Backtrack(0,0,"",maze);
+        int arr[][]=new int[3][3];
+        Printpath(0, 0, "", maze, arr, 1);
     }
 }
