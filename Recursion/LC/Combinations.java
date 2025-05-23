@@ -29,3 +29,28 @@ public class Combinations {
         System.out.println(combine(4, 2));
     }
 }
+
+
+// better solution
+
+// class Solution {
+//     public static void findCombinations(int n, int k, List<Integer> ar,List<List<Integer>> output) {
+//         if (ar.size() == k) {
+//             output.add(new ArrayList<>(ar));
+//             return;
+//         }
+//         int startindex = ar.size() > 0 ? ar.get(ar.size() - 1) : 0;
+//         for (int i = startindex + 1; i <= n; i++) {
+//             ar.add(i);
+//             findCombinations(n, k, ar,output);
+//             ar.remove(ar.size() - 1);
+//         }
+//     }
+
+    
+//     public List<List<Integer>> combine(int n, int k) {
+//         List<List<Integer>> output = new ArrayList<>();
+//         findCombinations(n, k, new ArrayList<Integer>(),output);
+//         return output;
+//     }
+// }
