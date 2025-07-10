@@ -1,3 +1,4 @@
+package Theory;
 public class Stack{
     protected int[] data;
     private static final int DEFAULTSIZE=10;

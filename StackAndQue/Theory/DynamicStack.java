@@ -1,3 +1,4 @@
+package Theory;
 public class DynamicStack extends Stack {
     public DynamicStack() {
         super();
