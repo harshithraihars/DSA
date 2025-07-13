@@ -1,5 +1,7 @@
 package lc;
 
+import java.util.Stack;
+
 public class MinimumInsertiontomakeValid {
     public int minAddToMakeValid(String s) {
         Stack<Character> stack=new Stack<>();
