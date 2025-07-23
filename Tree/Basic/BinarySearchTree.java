@@ -75,10 +75,65 @@ public class BinarySearchTree {
             this.insert(num);
         }
     }
+
+    public void populateSorted(int []nums){
+        populateSorted(nums,0,nums.length);
+    }
+
+    private void populateSorted(int []nums,int start,int end){
+        if(start>=end) return;
+        int mid=(start+end)/2;
+        insert(nums[mid]);
+        populateSorted(nums,start,mid-1);
+        populateSorted(nums, mid+1, end);
+    }
+
+    public void preOrder(){
+        preOrder(root);
+    }
+    private void preOrder(Node node){
+        if(node==null){
+            return;
+        }
+        System.out.print(node.value+"\t");
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+    public void Inorder(){
+        Inorder(root);
+    }
+    private void Inorder(Node node){
+        if(node==null){
+            return;
+        }
+        preOrder(node.left);
+        System.out.print(node.value+"\t");
+        preOrder(node.right);
+    }
+
+    public void postOrder(){
+        postOrder(root);
+    }
+    private void postOrder(Node node){
+        if(node==null){
+            return;
+        }
+        preOrder(node.left);
+        preOrder(node.right);
+        System.out.print(node.value+"\t");
+    }
+
     public static void main(String[] args) {
         BinarySearchTree tree=new BinarySearchTree();
-        int arr[]={5,2,7,1,4,6,9,8,3,10};
+        // 5,2,7,1,4,6,9,8,3,10
+        int arr[]={5,3,10};
         tree.populate(arr);
         tree.display();
+        tree.preOrder();
+        System.out.println();
+        tree.Inorder();
+        System.out.println();
+        tree.postOrder();
     }
 }
