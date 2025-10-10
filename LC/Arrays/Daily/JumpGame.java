@@ -20,6 +20,7 @@ public class JumpGame {
     public boolean canJump(int[] nums) {
         int max=0;
 
+        // just check whether you can jump higher when you see the 0 in any index
         for(int i=0;i<nums.length-1;i++){
             max=Math.max(max,i+nums[i]);
             if(nums[i]==0 && max<=i) return false;
