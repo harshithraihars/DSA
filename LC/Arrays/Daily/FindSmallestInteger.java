@@ -8,8 +8,6 @@
 // For example, the MEX of [-1,2,3] is 0 while the MEX of [1,0,3] is 2.
 // Return the maximum MEX of nums after applying the mentioned operation any number of times.
 
- 
-
 // Example 1:
 
 // Input: nums = [1,-10,7,13,6,8], value = 5
