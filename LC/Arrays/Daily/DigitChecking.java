@@ -26,4 +26,7 @@ public class DigitChecking {
 
         return str.charAt(0)==str.charAt(1);
     }
+    public static void main(String[] args) {
+        
+    }
 }
