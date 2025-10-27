@@ -35,4 +35,7 @@ public class NumRescueBoats {
         }
         return boats;
     }
+    public static void main(String[] args) {
+        
+    }
 }
