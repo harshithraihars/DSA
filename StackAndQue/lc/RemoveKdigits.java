@@ -1,7 +1,7 @@
 import java.util.Stack;
 
 public class RemoveKdigits{
-    public String removeKdigits(String num, int k) {
+    public static String removeKdigits(String num, int k) {
         Stack<Integer> stack=new Stack<>();
         int i=0;
         while(i<num.length()){

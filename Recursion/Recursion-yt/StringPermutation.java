@@ -47,7 +47,7 @@ public class StringPermutation {
 
     public static void main(String[] args) {
         // StringPermutat("","abc");
-        // System.out.println(StringPermutat2("","abc"));;
-        System.out.println(StringPermutat3("","abcd"));;
+        System.out.println(StringPermutat2("","abc"));;
+        // System.out.println(StringPermutat3("","abcd"));;
     }
 }
